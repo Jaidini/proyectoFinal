@@ -28,13 +28,15 @@
             var elNombre = $("#nombreUser").val();
             var elDNI = $("#dniUser").val();
             var laCiudad = $("#ciudadUser").val();
-            $("#nombreUser").val(" ");
-            $("#dniUser").val(" ");
-            $("#ciudadUser").val(" ");
+            var elEmail = $("#emailUser").val();
+            $("#nombreUser").val("");
+            $("#dniUser").val("");
+            $("#ciudadUser").val("");
+            $("#emailUser").val("");
             $.ajax({
                 type: "POST",
                 url: "http://smfdatabase.esy.es/pruebaServidor/insertarUsuarios.php",
-                data: ({name: elNombre, document: elDNI, city: laCiudad}),
+                data: ({name: elNombre, document: elDNI, city: laCiudad, emilio: elEmail}),
                 cache: false,
                 dataType: "text",
                 success: onSuccess
@@ -63,6 +65,10 @@
             <div class="row">
                 <label>Ciudad: </label>
                 <input type="text" name="ciudadUser" id="ciudadUser">
+            </div>
+            <div class="row">
+                <label>Email: </label>
+                <input type="text" name="emailUser" id="emailUser">
             </div>
             <a id="inserta" rel="external" class="btn btn-primary">Inserta</a>
             <a id="testLink" rel="external" class="btn btn-primary">Obtener los datos</a>
